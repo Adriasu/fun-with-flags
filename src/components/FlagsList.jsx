@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import CardFlag from "./CardFlag";
 import ThemeBar from "./ThemeBar";
+import SelectRegion from "./SelectRegion";
+import { Search } from "lucide-react";
+import SearchCountry from "./SearchCountry";
 
 const FlagsList = () => {
   const [countries, setCountries] = useState(null);
@@ -21,7 +24,7 @@ const FlagsList = () => {
     fetchCountries();
   }, []);
 
-  console.log(countries);
+  //console.log(countries);
 
   if (isLoading) {
     return (
@@ -38,10 +41,19 @@ const FlagsList = () => {
   return (
     <div>
       <ThemeBar />
-      <div className="grid grid-cols-4 gap-5">
-        {countries.map((country, i) => {
-          return <CardFlag key={i} countryInfo={country} />;
-        })}
+      <form>
+        <div className="flex px-[50px] justify-between items-center h-[72px]">
+          <SearchCountry dataCountries={countries} />
+          <div></div>
+          <SelectRegion />
+        </div>
+      </form>
+      <div className="pt-[100px] px-[50px] flex justify-center">
+        <div className="grid grid-cols-4 gap-5 w-full">
+          {countries.map((country, i) => {
+            return <CardFlag key={i} countryInfo={country} />;
+          })}
+        </div>
       </div>
     </div>
   );

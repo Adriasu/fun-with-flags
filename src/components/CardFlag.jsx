@@ -2,7 +2,7 @@ import React from "react";
 
 const CardFlag = ({ countryInfo }) => {
   return (
-    <div className="w-[265px] h-[380px] flex flex-col border-[1px] border-[#e1e8f0] rounded-md">
+    <div className="w-[320px] h-[380px] flex flex-col border-[1px] border-[#e1e8f0] rounded-md">
       <img
         className="w-max-full h-[200px] rounded-md border-[1px] border-[#e1e8f0]"
         src={countryInfo.flags.svg}
