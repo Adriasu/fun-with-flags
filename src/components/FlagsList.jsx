@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import CardFlag from "./CardFlag";
 import ThemeBar from "./ThemeBar";
 import SelectRegion from "./SelectRegion";
-import { Search } from "lucide-react";
 import SearchCountry from "./SearchCountry";
 
 const FlagsList = () => {
-  const [countries, setCountries] = useState(null);
+  const [countries, setCountries] = useState([]);
+  const [filterCountries, setFilterCountries] = useState([])
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchCountries = async () => {
@@ -14,6 +14,7 @@ const FlagsList = () => {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const dataCountries = await response.json();
       setCountries(dataCountries);
+      setFilterCountries(dataCountries)
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -43,14 +44,14 @@ const FlagsList = () => {
       <ThemeBar />
       <form>
         <div className="flex px-[50px] justify-between items-center h-[72px]">
-          <SearchCountry dataCountries={countries} />
+          <SearchCountry dataCountries={countries} filterCountriesState={setFilterCountries} />
           <div></div>
-          <SelectRegion />
+          <SelectRegion regions={filterCountries.region} />
         </div>
       </form>
       <div className="pt-[100px] px-[50px] flex justify-center">
         <div className="grid grid-cols-4 gap-5 w-full">
-          {countries.map((country, i) => {
+          {filterCountries.map((country, i) => {
             return <CardFlag key={i} countryInfo={country} />;
           })}
         </div>

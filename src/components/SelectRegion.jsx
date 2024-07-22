@@ -1,7 +1,11 @@
 import React from "react";
 
-const SelectRegion = () => {
-  const handleChange = () => {};
+const SelectRegion = ({regions}) => {
+  const handleChange = (e) => {
+    const region = e.target.value
+    console.log(region);
+
+  };
 
   return (
     <div>

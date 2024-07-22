@@ -1,7 +1,8 @@
+/* eslint-disable array-callback-return */
 import { Search } from "lucide-react";
 import React from "react";
 
-const SearchCountry = ({dataCountries}) => {
+const SearchCountry = ({dataCountries, filterCountriesState}) => {
   const countryFinder = (e) => {
     e.preventDefault();
     const letterInput = e.target.value.toLowerCase();
@@ -12,7 +13,11 @@ const SearchCountry = ({dataCountries}) => {
       if (letterApi.indexOf(letterInput) !== -1) {
         return country;
       }
+      return
     });
+
+    filterCountriesState(filterArray)
+
   };
 
   return (
