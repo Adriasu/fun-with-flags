@@ -46,7 +46,7 @@ const FlagsList = () => {
         <div className="flex px-[50px] justify-between items-center h-[72px]">
           <SearchCountry dataCountries={countries} filterCountriesState={setFilterCountries} />
           <div></div>
-          <SelectRegion regions={filterCountries.region} />
+          <SelectRegion dataCountries={countries} filterCountriesState={setFilterCountries} />
         </div>
       </form>
       <div className="pt-[100px] px-[50px] flex justify-center">
