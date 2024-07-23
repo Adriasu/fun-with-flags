@@ -22,9 +22,35 @@ const InfoCountry = () => {
     fetchCountry();
   }, [name]);
 
-  console.log(country);
+  return <div>
+  {country.map((info, i) => (
+    <div key={i}>
 
-  return <div>{name}</div>;
+      <img src={info.flags.svg} alt={info.name.common} />
+
+
+    </div>
+
+
+
+
+
+
+
+  ))}
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>;
 };
 
 export default InfoCountry;
