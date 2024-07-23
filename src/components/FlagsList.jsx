@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import CardFlag from "./CardFlag";
-import ThemeBar from "./ThemeBar";
 import SelectRegion from "./SelectRegion";
 import SearchCountry from "./SearchCountry";
 
 const FlagsList = () => {
   const [countries, setCountries] = useState([]);
-  const [filterCountries, setFilterCountries] = useState([])
+  const [filterCountries, setFilterCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchCountries = async () => {
@@ -14,7 +13,7 @@ const FlagsList = () => {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const dataCountries = await response.json();
       setCountries(dataCountries);
-      setFilterCountries(dataCountries)
+      setFilterCountries(dataCountries);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -41,18 +40,28 @@ const FlagsList = () => {
 
   return (
     <div>
-      <ThemeBar />
       <form>
         <div className="flex px-[50px] justify-between items-center h-[72px]">
-          <SearchCountry dataCountries={countries} filterCountriesState={setFilterCountries} />
+          <SearchCountry
+            dataCountries={countries}
+            filterCountriesState={setFilterCountries}
+          />
           <div></div>
-          <SelectRegion dataCountries={countries} filterCountriesState={setFilterCountries} />
+          <SelectRegion
+            dataCountries={countries}
+            filterCountriesState={setFilterCountries}
+          />
         </div>
       </form>
       <div className="pt-[100px] px-[50px] flex justify-center">
-        <div className="grid grid-cols-4 gap-5 w-full">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
           {filterCountries.map((country, i) => {
-            return <CardFlag key={i} countryInfo={country} />;
+            return (
+              <CardFlag
+                key={i}
+                countryInfo={country}
+              />
+            );
           })}
         </div>
       </div>

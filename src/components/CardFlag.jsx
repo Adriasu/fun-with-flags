@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const CardFlag = ({ countryInfo }) => {
+const CardFlag = ({ countryInfo, selectedCountry }) => {
+ 
   return (
     <div className="w-[320px] h-[380px] flex flex-col border-[1px] border-[#e1e8f0] rounded-md">
       <img
@@ -14,7 +16,7 @@ const CardFlag = ({ countryInfo }) => {
         <p>Population: {countryInfo.population.toLocaleString("en")}</p>
         <p>Region: {countryInfo.region}</p>
         <p>Capital: {countryInfo.capital}</p>
-        <button>More</button>
+        <Link to={`/${countryInfo.name.common}`}>More</Link>
       </div>
     </div>
   );
