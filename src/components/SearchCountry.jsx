@@ -2,7 +2,7 @@
 import { Search } from "lucide-react";
 import React from "react";
 
-const SearchCountry = ({dataCountries, filterCountriesState}) => {
+const SearchCountry = ({ dataCountries, filterCountriesState }) => {
   const countryFinder = (e) => {
     e.preventDefault();
     const letterInput = e.target.value.toLowerCase();
@@ -13,17 +13,17 @@ const SearchCountry = ({dataCountries, filterCountriesState}) => {
       if (letterApi.indexOf(letterInput) !== -1) {
         return country;
       }
-      return
+      return;
     });
 
-    filterCountriesState(filterArray)
-
+    filterCountriesState(filterArray);
   };
 
   return (
-    <div className="flex">
-      <Search />
+    <div className="flex border-[2px] border-[#e1e8f0] rounded-lg h-10 justify-center items-center gap-2 p-2 focus-within:border-[#3082cf]">
+      <Search className="text-[#ccd6e0]" />
       <input
+        className="outline-none rounded-lg"
         onKeyUp={countryFinder}
         type="text"
         placeholder="Search of a country"

@@ -41,12 +41,11 @@ const FlagsList = () => {
   return (
     <div className="dark:bg-[#1a202b] dark:text-white">
       <form>
-        <div className="flex px-[50px] justify-between items-center h-[72px]">
+        <div className="flex flex-wrap px-[50px] justify-between items-center h-[72px]">
           <SearchCountry
             dataCountries={countries}
             filterCountriesState={setFilterCountries}
           />
-          <div></div>
           <SelectRegion
             dataCountries={countries}
             filterCountriesState={setFilterCountries}
