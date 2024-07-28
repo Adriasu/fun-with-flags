@@ -18,7 +18,7 @@ const CardFlag = ({ countryInfo }) => {
         <div className="w-full flex justify-center items-center mt-2 ">
           <Link
             className="border-[1px] border-[#e1e8f0] rounded-md dark:border-[#40454f] px-3 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-[#282a33] dark:hover:bg-slate-700"
-            to={`/${countryInfo.name.common}`}
+            to={`/${countryInfo.cca3}`}
           >
             More
           </Link>

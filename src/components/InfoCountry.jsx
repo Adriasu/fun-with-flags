@@ -10,7 +10,7 @@ const InfoCountry = () => {
   const fetchCountry = async () => {
     try {
       const response = await fetch(
-        `https://restcountries.com/v3.1/name/${name}`
+        `https://restcountries.com/v3.1/alpha/${name}`
       );
       const dataCountry = await response.json();
       setCountry(dataCountry);
@@ -88,7 +88,7 @@ const InfoCountry = () => {
                       <h3>Borders:</h3>
                       <ul className="grid grid-cols-2 gap-2 mt-2">
                         {info.borders.map((border, i) => (
-                          <li className={`${cssButton} flex justify-center items-center`} key={i}><Link to={`/${info.name.common}`}>{border}</Link></li>
+                          <li className={`${cssButton} flex justify-center items-center`} key={i}><Link to={`/${border}`}>{border}</Link></li>
                         ))}
                       </ul>
                     </>
