@@ -20,10 +20,10 @@ const SearchCountry = ({ dataCountries, filterCountriesState }) => {
   };
 
   return (
-    <div className="flex border-[2px] border-[#e1e8f0] rounded-lg h-10 justify-center items-center gap-2 p-2 focus-within:border-[#3082cf]">
+    <div className="flex border-[2px] border-[#e1e8f0] dark:border-[#40454f] rounded-lg h-10 justify-center items-center gap-2 p-2 focus-within:border-[#3082cf]">
       <Search className="text-[#ccd6e0]" />
       <input
-        className="outline-none rounded-lg"
+        className="outline-none rounded-lg dark:bg-[#1a202b]"
         onKeyUp={countryFinder}
         type="text"
         placeholder="Search of a country"
