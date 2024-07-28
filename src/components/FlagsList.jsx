@@ -39,7 +39,7 @@ const FlagsList = () => {
   }
 
   return (
-    <div>
+    <div className="dark:bg-[#1a202b] dark:text-white">
       <form>
         <div className="flex px-[50px] justify-between items-center h-[72px]">
           <SearchCountry

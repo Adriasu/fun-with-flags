@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const CardFlag = ({ countryInfo }) => {
  
   return (
-    <div className="w-[320px] h-[380px] flex flex-col border-[1px] border-[#e1e8f0] rounded-md">
+    <div className="w-[320px] h-[380px] flex flex-col border-[1px] border-[#e1e8f0] rounded-md dark:border-[#40454f]">
       <img
-        className="w-max-full h-[200px] rounded-md border-[1px] border-[#e1e8f0]"
+        className="w-max-full h-[200px] rounded-md border-[1px] border-[#e1e8f0] dark:border-[#40454f]"
         src={countryInfo.flags.svg}
         alt={countryInfo.name.common}
       />
