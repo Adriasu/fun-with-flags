@@ -24,6 +24,8 @@ const InfoCountry = () => {
     fetchCountry();
   }, [name]);
 
+  console.log(country);
+
   const cssButton = "border-[1px] border-[#e1e8f0] rounded-md dark:border-[#40454f] px-3 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-[#282a33] dark:hover:bg-slate-700"
 
   if (isLoading) {
@@ -86,7 +88,7 @@ const InfoCountry = () => {
                       <h3>Borders:</h3>
                       <ul className="grid grid-cols-2 gap-2 mt-2">
                         {info.borders.map((border, i) => (
-                          <li className={`${cssButton}`} key={i}><Link to={`/${info.name.common}`}>{border}</Link></li>
+                          <li className={`${cssButton} flex justify-center items-center`} key={i}><Link to={`/${info.name.common}`}>{border}</Link></li>
                         ))}
                       </ul>
                     </>
